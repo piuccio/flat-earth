@@ -9,7 +9,7 @@ export default {
     { format: 'es', file: 'build/bundle.es.js' },
   ],
   plugins: [
-    resolve({preferBuiltins: true}),
+    resolve({ preferBuiltins: true }),
     commonjs(),
   ],
 };
