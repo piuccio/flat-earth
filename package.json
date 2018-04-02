@@ -2,12 +2,19 @@
   "name": "flat-earth",
   "version": "0.0.0",
   "description": "Modern set of functions for handling coordinates in Node.js or the browser",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/piuccio/flat-earth.git"
+  },
   "scripts": {
     "build": "rollup -c",
     "lint": "eslint --fix --ignore-path .gitignore .",
     "test": "jest",
     "test:coverage": "jest --bail --coverage",
     "test:watch": "jest --watchAll",
+    "pretest:ci": "npm run lint",
+    "test:ci": "jest --coverage",
+    "posttest:ci": "codecov",
     "posttest": "npm run lint",
     "posttest:coverage": "npm run lint"
   },
@@ -20,6 +27,7 @@
     "@babel/preset-env": "^7.0.0-beta.42",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^22.4.3",
+    "codecov": "^3.0.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.9.0",
@@ -74,15 +82,20 @@
         "error",
         "always"
       ],
-      "function-paren-newline": ["error", "consistent"],
+      "function-paren-newline": [
+        "error",
+        "consistent"
+      ],
       "import/no-extraneous-dependencies": [
-        "error", {
+        "error",
+        {
           "devDependencies": true
         }
       ],
       "import/prefer-default-export": 0,
       "no-use-before-define": [
-        "error", {
+        "error",
+        {
           "functions": false
         }
       ]
