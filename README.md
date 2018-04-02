@@ -18,7 +18,7 @@ If you need high precision you're better off using other modules like [geodesy](
 
 Compute the [Geohash](https://en.wikipedia.org/wiki/Geohash) of a point.
 
-```
+```js
 import { geohash } from 'flat-earth';
 
 console.log(geohash(35.6896491, 139.7001494)); // xn774cne32v3
@@ -31,7 +31,7 @@ The function is a simple wrapper around [latlon-geohash](https://github.com/chri
 
 Compute the distance in meters between two coordinates using the fast [Equirectangular approximation](https://www.movable-type.co.uk/scripts/latlong.html#equirectangular)
 
-```
+```js
 import { equirectangularDistance } from 'flat-earth';
 
 console.log(equirectangularDistance(
@@ -50,7 +50,7 @@ Accuracy varies depending on the latitude.
 Given a list of coordinates, compute the area containing all points.
 The area is described by the center point (lat, lon), the North-East and South-West edges.
 
-```
+```js
 import { boundingArea } from 'flat-earth';
 
 const area = boundingArea([
@@ -81,7 +81,7 @@ Given a bounding area, return the zoom level that would allow to fully display t
 
 Openstreetmap seems to only have an integer zoom, while google maps on large screens also accepts decimal units. Use the precision to control the value. If no precision is specified it returns an integer.
 
-```
+```js
 const area = boundingArea([
   { lat: 35.6896491, lon: 139.7001494 },
   { lat: 35.6579909, lon: 139.7014112 },
