@@ -1,5 +1,6 @@
 import {
   boundingArea,
+  containingGeohashes,
   equirectangularDistance,
   geohash,
   getZoom,
@@ -55,4 +56,34 @@ describe('boundingArea', () => {
     // The zoom depends on the screen size
     expect(getZoom(middle, { width: 1024, height: 768 })).toBe(14);
   });
+});
+
+describe('containingGeohashes', () => {
+  const hashesSmall = containingGeohashes(SHINJUKU, 5);
+  expect(hashesSmall.precision).toEqual('xn774cne3'.length);
+  expect(hashesSmall.hashes.sort()).toEqual([
+    'xn774cne3', // this one is shinjuku
+    'xn774cne0',
+    'xn774cne1',
+    'xn774cne2',
+    'xn774cne4',
+    'xn774cne6',
+    'xn774cne9',
+    'xn774cne8',
+    'xn774cned',
+  ].sort());
+
+  const hashesMedium = containingGeohashes(SHINJUKU, 50);
+  expect(hashesMedium.precision).toEqual('xn774cn'.length);
+  expect(hashesMedium.hashes.sort()).toEqual([
+    'xn774cn', // this one is shinjuku, at this resolution we're at the edge
+    'xn774cj',
+    'xn774cp',
+    'xn774cm',
+    'xn774cq',
+    'xn774cr',
+    'xn774bz',
+    'xn774by',
+    'xn774bv',
+  ].sort());
 });

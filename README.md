@@ -90,3 +90,29 @@ const area = boundingArea([
 const zoom = getZoom(area, { width: 700, height: 700 });  // screen size in pixel
 // 13
 ```
+
+## containingGeohashes
+
+Given a location, computes the minimal list of Geohashes that need to be checked to find all points within a certain distance
+
+```js
+const containing = containingGeohashes({ lat: 35.6896491, lon: 139.7001494 }, 100);
+/*
+containing = {
+  precision: 7,
+  hashes: [
+    'xn774cq',
+    'xn774cr',
+    'xn774cp',
+    'xn774bz',
+    'xn774by',
+    'xn774bv',
+    'xn774cj',
+    'xn774cm',
+    'xn774cn'
+  ]
+}
+ */
+```
+
+The distance is measured in meters
