@@ -1,6 +1,7 @@
 import {
   boundingArea,
   containingGeohashes,
+  distanceOnFoot,
   equirectangularDistance,
   geohash,
   getZoom,
@@ -86,4 +87,10 @@ describe('containingGeohashes', () => {
     'xn774by',
     'xn774bv',
   ].sort());
+});
+
+describe('distanceOnFoot', () => {
+  it('computes the distance in meters', () => {
+    expect(distanceOnFoot(60)).toEqual(5000);
+  });
 });

@@ -146,3 +146,13 @@ exports.containingGeohashes = function containingHashes(point, distance) {
     hashes: Object.values(neighbours).concat(pointHash.slice(0, precision)),
   };
 };
+
+/**
+ * Compute the distance in meters that an average person covers in a given time (minutes)
+ *
+ * https://en.wikipedia.org/wiki/Walking
+ */
+exports.distanceOnFoot = function distanceOnFoot(minutes) {
+  // Average of 5 km per hour equivalent to 83.3 meters per minute
+  return Math.ceil(83.33 * minutes);
+}

@@ -82,6 +82,8 @@ Given a bounding area, return the zoom level that would allow to fully display t
 Openstreetmap seems to only have an integer zoom, while google maps on large screens also accepts decimal units. Use the precision to control the value. If no precision is specified it returns an integer.
 
 ```js
+import { boundingArea, getZoom } from 'flat-earth';
+
 const area = boundingArea([
   { lat: 35.6896491, lon: 139.7001494 },
   { lat: 35.6579909, lon: 139.7014112 },
@@ -96,6 +98,8 @@ const zoom = getZoom(area, { width: 700, height: 700 });  // screen size in pixe
 Given a location, computes the minimal list of Geohashes that need to be checked to find all points within a certain distance
 
 ```js
+import { containingGeohashes } from 'flat-earth';
+
 const containing = containingGeohashes({ lat: 35.6896491, lon: 139.7001494 }, 100);
 /*
 containing = {
@@ -116,3 +120,14 @@ containing = {
 ```
 
 The distance is measured in meters
+
+## distanceOnFoot
+
+Computes the distance in meters that an average person covers in a given time (minutes)
+
+```js
+import { distanceOnFoot } from 'flat-earth';
+console.log(distanceOnFoot(10)); // 834
+```
+
+Very simple computation from the [assumption](https://en.wikipedia.org/wiki/Walking) of 5 km/h
