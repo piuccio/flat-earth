@@ -1,6 +1,10 @@
 /* eslint-disable no-restricted-properties */
 import GeohashLib from 'latlon-geohash';
 
+function ObjectValues(object) {
+  return Object.values ? Object.values(object) : Object.keys(object).map((key) => object[key]);
+}
+
 /**
  * The precision determines the size of the bounding box (diagonal), max 12
  *
@@ -143,7 +147,7 @@ exports.containingGeohashes = function containingHashes(point, distance) {
   const neighbours = GeohashLib.neighbours(pointHash.slice(0, precision));
   return {
     precision,
-    hashes: Object.values(neighbours).concat(pointHash.slice(0, precision)),
+    hashes: ObjectValues(neighbours).concat(pointHash.slice(0, precision)),
   };
 };
 
