@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "rollup -c",
+    "prepare": "npm run build",
     "lint": "eslint --fix --ignore-path .gitignore .",
     "test": "jest",
     "test:coverage": "jest --bail --coverage",
@@ -16,29 +17,30 @@
     "test:ci": "jest --coverage",
     "posttest:ci": "codecov",
     "posttest": "npm run lint",
-    "posttest:coverage": "npm run lint"
+    "posttest:coverage": "npm run lint",
+    "preproduction": "git checkout master && git pull",
+    "production": "np --no-cleanup"
   },
   "main": "build/bundle.cjs.js",
   "module": "build/bundle.es.js",
   "browser": "build/bundle.umd.js",
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.42",
-    "@babel/plugin-transform-modules-commonjs": "^7.0.0-beta.42",
-    "@babel/preset-env": "^7.0.0-beta.42",
+    "@babel/core": "^7.0.0-beta.44",
+    "@babel/plugin-transform-modules-commonjs": "^7.0.0-beta.44",
+    "@babel/preset-env": "^7.0.0-beta.44",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^22.4.3",
     "codecov": "^3.0.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-import": "^2.10.0",
     "jest": "^22.4.3",
+    "latlon-geohash": "^1.1.0",
+    "np": "^2.20.1",
     "regenerator-runtime": "^0.11.1",
     "rollup": "^0.57.1",
     "rollup-plugin-commonjs": "^9.1.0",
     "rollup-plugin-node-resolve": "^3.3.0"
-  },
-  "dependencies": {
-    "latlon-geohash": "^1.1.0"
   },
   "engines": {
     "node": ">6"

@@ -155,4 +155,4 @@ exports.containingGeohashes = function containingHashes(point, distance) {
 exports.distanceOnFoot = function distanceOnFoot(minutes) {
   // Average of 5 km per hour equivalent to 83.3 meters per minute
   return Math.ceil(83.33 * minutes);
-}
+};

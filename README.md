@@ -131,3 +131,19 @@ console.log(distanceOnFoot(10)); // 834
 ```
 
 Very simple computation from the [assumption](https://en.wikipedia.org/wiki/Walking) of 5 km/h
+
+
+
+# Usage in node.js
+
+All the example above use the ES modules syntax
+
+```js
+import { distanceOnFoot } from 'flat-earth';
+```
+
+On Node.js, if you're not using babel you can use instead
+
+```js
+const { distanceOnFoot } = require('flat-earth');
+```ˇ
