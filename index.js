@@ -141,7 +141,7 @@ exports.containingGeohashes = function containingHashes(point, distance) {
     PRECISIONS[i] = exports.equirectangularDistance(bounds.sw, bounds.ne);
   }
   const precision = PRECISIONS.findIndex(
-    (error = Infinity, i, array) => (distance < error) && (distance > (array[i + 1] || Infinity)),
+    (error = Infinity, i, array) => (distance < error) && (distance > (array[i + 1] || Infinity))
   );
   const pointHash = GeohashLib.encode(point.lat, point.lon);
   const neighbours = GeohashLib.neighbours(pointHash.slice(0, precision));
