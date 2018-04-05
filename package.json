@@ -1,6 +1,6 @@
 {
   "name": "@piuccio/flat-earth",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Modern set of functions for handling coordinates in Node.js or the browser",
   "repository": {
     "type": "git",
@@ -87,13 +87,16 @@
         "error",
         "always"
       ],
-      "comma-dangle": ["error", {
-        "arrays": "always-multiline",
-        "objects": "always-multiline",
-        "imports": "always-multiline",
-        "exports": "always-multiline",
-        "functions": "never"
-      }],
+      "comma-dangle": [
+        "error",
+        {
+          "arrays": "always-multiline",
+          "objects": "always-multiline",
+          "imports": "always-multiline",
+          "exports": "always-multiline",
+          "functions": "never"
+        }
+      ],
       "function-paren-newline": [
         "error",
         "consistent"
