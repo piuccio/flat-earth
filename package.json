@@ -1,6 +1,6 @@
 {
   "name": "@piuccio/flat-earth",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Modern set of functions for handling coordinates in Node.js or the browser",
   "repository": {
     "type": "git",
