@@ -146,4 +146,4 @@ On Node.js, if you're not using babel you can use instead
 
 ```js
 const { distanceOnFoot } = require('flat-earth');
-```ˇ
+```
