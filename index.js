@@ -160,3 +160,10 @@ exports.distanceOnFoot = function distanceOnFoot(minutes) {
   // Average of 5 km per hour equivalent to 83.3 meters per minute
   return Math.ceil(83.33 * minutes);
 };
+
+/**
+ * Compute the time (in minutes) it takes an average person to cover the given distance in meters
+ */
+exports.minutesOnFoot = function minutesOnFoot(distance) {
+  return Math.ceil(distance / 83.33);
+};

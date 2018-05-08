@@ -5,6 +5,7 @@ import {
   equirectangularDistance,
   geohash,
   getZoom,
+  minutesOnFoot,
 } from '../index';
 
 const SHINJUKU = { lat: 35.6896491, lon: 139.7001494 };
@@ -92,5 +93,13 @@ describe('containingGeohashes', () => {
 describe('distanceOnFoot', () => {
   it('computes the distance in meters', () => {
     expect(distanceOnFoot(60)).toEqual(5000);
+  });
+});
+
+describe('minutesOnFoot', () => {
+  it('computes the time in minutes', () => {
+    expect(minutesOnFoot(50)).toEqual(1);
+    expect(minutesOnFoot(100)).toEqual(2);
+    expect(minutesOnFoot(1000)).toEqual(13);
   });
 });
