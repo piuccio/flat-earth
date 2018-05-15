@@ -133,12 +133,12 @@ function zoomByPixels(referenceLatitude, distanceToCover, pixelAvailable, precis
  *
  * Distance is expressed in meters
  */
-exports.containingGeohashes = function containingHashes(point, distance) {
+export function containingGeohashes(point, distance) {
   const PRECISIONS = [];
   for (let i = 4; i < 12; i += 1) {
     // the precisions could vary depending on the desired point
     const bounds = GeohashLib.bounds(GeohashLib.encode(point.lat, point.lon, i));
-    PRECISIONS[i] = exports.equirectangularDistance(bounds.sw, bounds.ne);
+    PRECISIONS[i] = equirectangularDistance(bounds.sw, bounds.ne);
   }
   const precision = PRECISIONS.findIndex(
     (error = Infinity, i, array) => (distance < error) && (distance > (array[i + 1] || Infinity))
@@ -149,21 +149,21 @@ exports.containingGeohashes = function containingHashes(point, distance) {
     precision,
     hashes: ObjectValues(neighbours).concat(pointHash.slice(0, precision)),
   };
-};
+}
 
 /**
  * Compute the distance in meters that an average person covers in a given time (minutes)
  *
  * https://en.wikipedia.org/wiki/Walking
  */
-exports.distanceOnFoot = function distanceOnFoot(minutes) {
+export function distanceOnFoot(minutes) {
   // Average of 5 km per hour equivalent to 83.3 meters per minute
   return Math.ceil(83.33 * minutes);
-};
+}
 
 /**
  * Compute the time (in minutes) it takes an average person to cover the given distance in meters
  */
-exports.minutesOnFoot = function minutesOnFoot(distance) {
+export function minutesOnFoot(distance) {
   return Math.ceil(distance / 83.33);
-};
+}
