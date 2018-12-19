@@ -1,0 +1,57 @@
+{
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2018
+  },
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/tests/*.test.js"
+      ],
+      "env": {
+        "jest": true
+      }
+    }
+  ],
+  "plugins": [
+    "import"
+  ],
+  "rules": {
+    "arrow-parens": [
+      "error",
+      "always"
+    ],
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "never"
+      }
+    ],
+    "function-paren-newline": [
+      "error",
+      "consistent"
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
+    "import/prefer-default-export": 0,
+    "no-use-before-define": [
+      "error",
+      {
+        "functions": false
+      }
+    ]
+  }
+}

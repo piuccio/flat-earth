@@ -31,22 +31,21 @@
     "build/"
   ],
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.44",
-    "@babel/plugin-transform-modules-commonjs": "^7.0.0-beta.44",
-    "@babel/preset-env": "^7.0.0-beta.44",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^22.4.3",
-    "codecov": "^3.0.0",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.10.0",
-    "jest": "^22.4.3",
+    "babel-jest": "^23.6.0",
+    "codecov": "^3.1.0",
+    "eslint": "^5.10.0",
+    "eslint-plugin-import": "2.14.0",
+    "jest": "^23.6.0",
     "latlon-geohash": "^1.1.0",
-    "np": "^2.20.1",
-    "regenerator-runtime": "^0.11.1",
-    "rollup": "^0.57.1",
-    "rollup-plugin-commonjs": "^9.1.0",
-    "rollup-plugin-node-resolve": "^3.3.0"
+    "np": "^3.1.0",
+    "regenerator-runtime": "^0.13.1",
+    "rollup": "^0.68.0",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^4.0.0"
   },
   "engines": {
     "node": ">6"
@@ -56,8 +55,8 @@
       [
         "@babel/preset-env",
         {
-          "es2015": {
-            "modules": false
+          "targets": {
+            "esmodules": true
           }
         }
       ]
@@ -73,51 +72,5 @@
   "jest": {
     "testEnvironment": "node",
     "testRegex": "tests/.*\\.test\\.js$"
-  },
-  "eslintConfig": {
-    "extends": "airbnb-base",
-    "overrides": [
-      {
-        "files": [
-          "**/tests/*.test.js"
-        ],
-        "env": {
-          "jest": true
-        }
-      }
-    ],
-    "rules": {
-      "arrow-parens": [
-        "error",
-        "always"
-      ],
-      "comma-dangle": [
-        "error",
-        {
-          "arrays": "always-multiline",
-          "objects": "always-multiline",
-          "imports": "always-multiline",
-          "exports": "always-multiline",
-          "functions": "never"
-        }
-      ],
-      "function-paren-newline": [
-        "error",
-        "consistent"
-      ],
-      "import/no-extraneous-dependencies": [
-        "error",
-        {
-          "devDependencies": true
-        }
-      ],
-      "import/prefer-default-export": 0,
-      "no-use-before-define": [
-        "error",
-        {
-          "functions": false
-        }
-      ]
-    }
   }
 }
