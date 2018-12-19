@@ -2,7 +2,7 @@ Modern set of functions for handling coordinates in Node.js or the browser
 
 # Installation
 
-`npm install --save flat-earth`
+`npm install --save @piuccio/flat-earth`
 
 That'll work for node.js and most likely for the browser as well if you're using Webpack, rollup or similar bundlers.
 
@@ -19,7 +19,7 @@ If you need high precision you're better off using other modules like [geodesy](
 Compute the [Geohash](https://en.wikipedia.org/wiki/Geohash) of a point.
 
 ```js
-import { geohash } from 'flat-earth';
+import { geohash } from '@piuccio/flat-earth';
 
 console.log(geohash(35.6896491, 139.7001494)); // xn774cne32v3
 console.log(geohash(35.6896491, 139.7001494, 7)); // xn774cn
@@ -32,7 +32,7 @@ The function is a simple wrapper around [latlon-geohash](https://github.com/chri
 Compute the distance in meters between two coordinates using the fast [Equirectangular approximation](https://www.movable-type.co.uk/scripts/latlong.html#equirectangular)
 
 ```js
-import { equirectangularDistance } from 'flat-earth';
+import { equirectangularDistance } from '@piuccio/flat-earth';
 
 console.log(equirectangularDistance(
   { lat: 35.6896491, lon: 139.7001494 },
@@ -51,7 +51,7 @@ Given a list of coordinates, compute the area containing all points.
 The area is described by the center point (lat, lon), the North-East and South-West edges.
 
 ```js
-import { boundingArea } from 'flat-earth';
+import { boundingArea } from '@piuccio/flat-earth';
 
 const area = boundingArea([
   { lat: 35.6896491, lon: 139.7001494 },
@@ -82,7 +82,7 @@ Given a bounding area, return the zoom level that would allow to fully display t
 Openstreetmap seems to only have an integer zoom, while google maps on large screens also accepts decimal units. Use the precision to control the value. If no precision is specified it returns an integer.
 
 ```js
-import { boundingArea, getZoom } from 'flat-earth';
+import { boundingArea, getZoom } from '@piuccio/flat-earth';
 
 const area = boundingArea([
   { lat: 35.6896491, lon: 139.7001494 },
@@ -98,7 +98,7 @@ const zoom = getZoom(area, { width: 700, height: 700 });  // screen size in pixe
 Given a location, computes the minimal list of Geohashes that need to be checked to find all points within a certain distance
 
 ```js
-import { containingGeohashes } from 'flat-earth';
+import { containingGeohashes } from '@piuccio/flat-earth';
 
 const containing = containingGeohashes({ lat: 35.6896491, lon: 139.7001494 }, 100);
 /*
@@ -126,7 +126,7 @@ The distance is measured in meters
 Computes the distance in meters that an average person covers in a given time (minutes)
 
 ```js
-import { distanceOnFoot } from 'flat-earth';
+import { distanceOnFoot } from '@piuccio/flat-earth';
 console.log(distanceOnFoot(10)); // 834
 ```
 
@@ -139,11 +139,11 @@ Very simple computation from the [assumption](https://en.wikipedia.org/wiki/Walk
 All the example above use the ES modules syntax
 
 ```js
-import { distanceOnFoot } from 'flat-earth';
+import { distanceOnFoot } from '@piuccio/flat-earth';
 ```
 
 On Node.js, if you're not using babel you can use instead
 
 ```js
-const { distanceOnFoot } = require('flat-earth');
+const { distanceOnFoot } = require('@piuccio/flat-earth');
 ```
