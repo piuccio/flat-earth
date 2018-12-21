@@ -31,6 +31,15 @@ describe('equirectangularDistance', () => {
 });
 
 describe('boundingArea', () => {
+  it('returns the point if there is only one', () => {
+    const middle = boundingArea([SHINJUKU]);
+    expect(equirectangularDistance(middle.center, SHINJUKU)).toBeLessThan(1);
+    expect(middle.ne).toEqual({ lat: SHINJUKU.lat, lon: SHINJUKU.lon });
+    expect(middle.sw).toEqual({ lat: SHINJUKU.lat, lon: SHINJUKU.lon });
+    expect(getZoom(middle, { width: 700, height: 700 })).toBe(19);
+    expect(getZoom(middle, { width: 700, height: 700 }, 2)).toBe(19);
+  });
+
   it('returns the middle point of two places', () => {
     // I'm using this to validate midpoints http://www.geomidpoint.com/meet/
     const middle = boundingArea([SHINJUKU, SHIBUYA]);

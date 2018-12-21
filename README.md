@@ -133,6 +133,17 @@ console.log(distanceOnFoot(10)); // 834
 Very simple computation from the [assumption](https://en.wikipedia.org/wiki/Walking) of 5 km/h
 
 
+## minutesOnFoot
+
+Computes the time it takes an average person to cover the given distance (meters)
+
+```js
+import { minutesOnFoot } from '@piuccio/flat-earth';
+console.log(minutesOnFoot(100)); // 2
+```
+
+Very simple computation from the [assumption](https://en.wikipedia.org/wiki/Walking) of 5 km/h
+
 
 # Usage in node.js
 

@@ -1,6 +1,8 @@
 /* eslint-disable no-restricted-properties */
 import GeohashLib from 'latlon-geohash';
 
+const MAX_ZOOM = 19;
+
 function ObjectValues(object) {
   return Object.values ? Object.values(object) : Object.keys(object).map((key) => object[key]);
 }
@@ -118,7 +120,7 @@ function zoomByPixels(referenceLatitude, distanceToCover, pixelAvailable, precis
   // https://wiki.openstreetmap.org/wiki/Zoom_levels
   const expectedPixelSize = distanceToCover / Math.floor(pixelAvailable);
   const adjustedCirconference = C * Math.cos(toRadians(referenceLatitude));
-  const zoom = (Math.log2(adjustedCirconference / expectedPixelSize) - 8);
+  const zoom = Math.min(MAX_ZOOM, (Math.log2(adjustedCirconference / expectedPixelSize) - 8));
   // openstreetmap seems to only have an integer zoom, while google maps accepts decimal
   if (precision) {
     const factor = Math.pow(10, precision);
